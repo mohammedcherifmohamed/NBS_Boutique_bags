@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBS Boutique | Premium Luggage & Handbags in Oran</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandBg: '#F9F8F6',
+                        brandDark: '#1A1A1A',
+                        brandAccent: '#712b28',
+                        brandMuted: '#737373',
+                        brandCardBg: '#F0ECE1',
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Playfair Display & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Custom CSS for editorial feel and smooth transitions -->
+    <style>
+        body {
+            background-color: #F9F8F6;
+            color: #1A1A1A;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Sharp borders directive: no overly rounded corners */
+        .sharp-edge {
+            border-radius: 0px !important;
+        }
+        .subtle-edge {
+            border-radius: 2px !important;
+        }
+        /* Fade-in-up scroll animation styles */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F9F8F6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1A1A1A;
+        }
+    </style>
+</head>
+<body class="bg-brandBg text-brandDark antialiased selection:bg-brandAccent selection:text-white">
+
+    <!-- Navigation Bar -->
+    <header id="site-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-transparent py-5 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Left: Brand Logo -->
+            <a href="#" class="font-serif text-xl md:text-2xl tracking-[0.25em] uppercase font-semibold text-brandDark">
+                NBS Boutique
+            </a>
+
+            <!-- Center/Right: Navigation Links (Desktop) -->
+            <nav class="hidden md:flex items-center space-x-10 text-xs uppercase tracking-[0.2em] font-medium">
+                <a href="#shop" class="hover:text-brandAccent transition-colors">Shop</a>
+                <a href="#collections" class="hover:text-brandAccent transition-colors">Collections</a>
+                <a href="#story" class="hover:text-brandAccent transition-colors">About</a>
+                <a href="#contact" class="hover:text-brandAccent transition-colors">Contact</a>
+            </nav>
+
+            <!-- Far Right: WhatsApp & Mobile Menu Trigger -->
+            <div class="flex items-center space-x-6">
+                <!-- WhatsApp Link -->
+                <a href="https://wa.me/0561040099" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-xs uppercase tracking-wider hover:text-brandAccent transition-colors group" title="Chat on WhatsApp">
+                    <span class="hidden lg:inline font-medium">056 10 40 099</span>
+                    <div class="w-9 h-9 border border-brandDark/20 flex items-center justify-center subtle-edge group-hover:border-brandAccent group-hover:bg-brandAccent group-hover:text-white transition-all">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Mobile Hamburger Toggle -->
+                <button id="menu-toggle" class="md:hidden w-10 h-10 flex flex-col items-center justify-center space-y-1.5 focus:outline-none z-50">
+                    <span class="w-6 h-0.5 bg-brandDark transition-transform duration-300 transform" id="bar1"></span>
+                    <span class="w-6 h-0.5 bg-brandDark transition-opacity duration-300" id="bar2"></span>
+                    <span class="w-6 h-0.5 bg-brandDark transition-transform duration-300 transform" id="bar3"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-brandBg z-40 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-center px-8 md:hidden">
+        <div class="space-y-6 text-center">
+            <span class="text-xs uppercase tracking-[0.3em] text-brandAccent block mb-4">Navigation</span>
+            <a href="#shop" class="mobile-link block font-serif text-3xl tracking-wide hover:text-brandAccent transition-colors">Shop</a>
+            <a href="#collections" class="mobile-link block font-serif text-3xl tracking-wide hover:text-brandAccent transition-colors">Collections</a>
+            <a href="#story" class="mobile-link block font-serif text-3xl tracking-wide hover:text-brandAccent transition-colors">About</a>
+            <a href="#contact" class="mobile-link block font-serif text-3xl tracking-wide hover:text-brandAccent transition-colors">Contact</a>
+            <div class="pt-8 border-t border-brandDark/10 mt-8">
+                <a href="https://wa.me/0561040099" target="_blank" rel="noopener noreferrer" class="inline-block text-xs uppercase tracking-[0.2em] px-8 py-4 bg-brandDark text-brandBg subtle-edge font-medium">
+                    Order via WhatsApp (056 10 40 099)
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen pt-28 md:pt-0 flex flex-col md:flex-row items-stretch">
+        <!-- Left Side: Editorial Typography & CTA -->
+        <div class="w-full md:w-1/2 flex flex-col justify-center px-8 sm:px-16 lg:px-24 py-16 md:py-0 bg-brandBg reveal-on-scroll">
+            <div class="max-w-xl">
+                <span class="text-xs uppercase tracking-[0.7em] text-brandAccent font-bold block mb-4">Oran Flagship Boutique</span>
+                <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl italic leading-[1.1] text-brandDark mb-6">
+                    Travel & Style, <span class="text-brandAccent">Redefined.</span> 
+                </h1>
+                <p class="text-brandMuted text-base sm:text-lg font-light leading-relaxed mb-10 max-w-md">
+                    Premium luggage and luxury handbags, meticulously curated in Oran for the discerning traveler.
+                </p>
+                <div>
+                    <a href="#shop" class="inline-block px-8 py-4 bg-brandAccent text-brandBg text-xs uppercase tracking-[0.2em] font-medium subtle-edge hover:bg-brandDark transition-all duration-300">
+                        Shop the Collection
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side: Edge-to-Edge Editorial Image -->
+        <div class="w-full md:w-1/2 min-h-[50vh] md:min-h-screen relative overflow-hidden bg-stone-200">
+            <img src="nbs-story.png" 
+                 alt="NBS Boutique heritage image in Oran" 
+                 class="absolute inset-0 w-full h-full object-cover object-center hover:scale-105 transition-transform duration-1000 ease-out"
+                 onerror="this.src='https://placehold.co/1200x1600/1A1A1A/F9F8F6?text=NBS+Boutique'">
+            <div class="absolute inset-0 bg-brandDark/10"></div>
+        </div>
+    </section>
+
+    <!-- Category Grid (The Edit) -->
+    <section id="collections" class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 reveal-on-scroll">
+            <div>
+                <span class="text-xs uppercase tracking-[0.3em] text-brandAccent font-semibold block mb-2">Curated Categories</span>
+                <h2 class="font-serif text-3xl md:text-5xl font-bold">The Edit</h2>
+            </div>
+            <p class="text-brandMuted text-sm max-w-sm mt-4 md:mt-0 font-light">
+                Discover our signature selections designed for resilience, elegance, and everyday utility.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Category 1: Luggage -->
+            <a href="#shop" class="group block reveal-on-scroll">
+                <div class="overflow-hidden bg-stone-200 aspect-[3/5] mb-6 relative">
+                    <img src="category-luggage%20%281%29.jpg" 
+                         alt="Hard-shell luggage" 
+                         class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                         onerror="this.src='https://placehold.co/800x1000/F0ECE1/1A1A1A?text=Luggage'">
+                    <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+                </div>
+                <div class="flex justify-between items-baseline transform group-hover:-translate-y-1 transition-transform duration-300">
+                    <h3 class="font-serif text-2xl font-normal">Hard-Shell Luggage</h3>
+                    <span class="text-xs uppercase tracking-[0.2em] text-brandMuted group-hover:text-brandDark transition-colors">Explore &rarr;</span>
+                </div>
+            </a>
+
+            <!-- Category 2: Handbags -->
+            <a href="#shop" class="group block reveal-on-scroll md:mt-24" style="transition-delay: 150ms;">
+                <div class="overflow-hidden bg-stone-200 aspect-[3/5] mb-6 relative">
+                    <img src="category-handbags.jpg" 
+                         alt="Luxury handbags" 
+                         class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                         onerror="this.src='https://placehold.co/800x1000/F0ECE1/1A1A1A?text=Handbags'">
+                    <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+                </div>
+                <div class="flex justify-between items-baseline transform group-hover:-translate-y-1 transition-transform duration-300">
+                    <h3 class="font-serif text-2xl font-normal">Luxury Handbags</h3>
+                    <span class="text-xs uppercase tracking-[0.2em] text-brandMuted group-hover:text-brandDark transition-colors">Explore &rarr;</span>
+                </div>
+            </a>
+
+            <!-- Category 3: Kids' Bags -->
+            <a href="#shop" class="group block reveal-on-scroll" style="transition-delay: 300ms;">
+                <div class="overflow-hidden bg-stone-200 aspect-[3/5] mb-6 relative">
+                    <img src="category-kids.jpg" 
+                         alt="Kids backpacks" 
+                         class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                         onerror="this.src='https://placehold.co/800x1000/F0ECE1/1A1A1A?text=Kids+Bags'">
+                    <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+                </div>
+                <div class="flex justify-between items-baseline transform group-hover:-translate-y-1 transition-transform duration-300">
+                    <h3 class="font-serif text-2xl font-normal">Kids' Adventure Bags</h3>
+                    <span class="text-xs uppercase tracking-[0.2em] text-brandMuted group-hover:text-brandDark transition-colors">Explore &rarr;</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Featured Products (Best Sellers) -->
+    <section id="shop" class="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-brandDark/10">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 reveal-on-scroll">
+            <div>
+                <span class="text-xs uppercase tracking-[0.3em] text-brandAccent font-semibold block mb-2">Bestsellers</span>
+                <h2 class="font-serif text-3xl md:text-5xl font-normal">The NBS Edit</h2>
+            </div>
+            <p class="text-brandMuted text-sm max-w-sm mt-4 md:mt-0 font-light">
+                Handpicked favorites combining peerless durability with contemporary Algerian aesthetic sensibilities.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Product 1 -->
+            <div class="group reveal-on-scroll">
+                <div class="bg-brandCardBg aspect-[4/5] mb-4 relative overflow-hidden">
+                    <a href="product_details_page_nbs_boutique.html" class="block w-full h-full">
+                        <img src="product-carryon.jpg" 
+                             alt="The Pastel Carry-On" 
+                             class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/600x750/EAE5D9/1A1A1A?text=Pastel+Carry-On'">
+                    </a>
+                    <a href="https://wa.me/0561040099?text=Hello%20NBS%20Boutique,%20I%20would%20like%20to%20order%20The%20Pastel%20Carry-On" target="_blank" rel="noopener noreferrer" class="absolute bottom-4 left-4 right-4 bg-brandDark text-brandBg py-3 text-center text-xs uppercase tracking-widest font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 subtle-edge">
+                        Add to Cart via WhatsApp
+                    </a>
+                </div>
+                <a href="product_details_page_nbs_boutique.html" class="block transition-colors duration-300 group-hover:text-brandAccent">
+                    <h4 class="font-serif text-lg font-medium mb-1">The Pastel Carry-On</h4>
+                </a>
+                <p class="text-brandMuted text-sm font-semibold tracking-wide">24,500 DZD</p>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="group reveal-on-scroll" style="transition-delay: 100ms;">
+                <div class="bg-brandCardBg aspect-[4/5] mb-4 relative overflow-hidden">
+                    <a href="product_details_page_nbs_boutique.html" class="block w-full h-full">
+                        <img src="product-tote.jpg" 
+                             alt="Everyday Tote" 
+                             class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/600x750/EAE5D9/1A1A1A?text=Everyday+Tote'">
+                    </a>
+                    <a href="https://wa.me/0561040099?text=Hello%20NBS%20Boutique,%20I%20would%20like%20to%20order%20Everyday%20Tote" target="_blank" rel="noopener noreferrer" class="absolute bottom-4 left-4 right-4 bg-brandDark text-brandBg py-3 text-center text-xs uppercase tracking-widest font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 subtle-edge">
+                        Add to Cart via WhatsApp
+                    </a>
+                </div>
+                <a href="product_details_page_nbs_boutique.html" class="block transition-colors duration-300 group-hover:text-brandAccent">
+                    <h4 class="font-serif text-lg font-medium mb-1">Everyday Tote</h4>
+                </a>
+                <p class="text-brandMuted text-sm font-semibold tracking-wide">12,800 DZD</p>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="group reveal-on-scroll" style="transition-delay: 200ms;">
+                <div class="bg-brandCardBg aspect-[4/5] mb-4 relative overflow-hidden">
+                    <a href="product_details_page_nbs_boutique.html" class="block w-full h-full">
+                        <img src="category-kids.jpg" 
+                             alt="Kids' Adventure Backpack" 
+                             class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/600x750/EAE5D9/1A1A1A?text=Kids+Backpack'">
+                    </a>
+                    <a href="https://wa.me/0561040099?text=Hello%20NBS%20Boutique,%20I%20would%20like%20to%20order%20Kids%20Adventure%20Backpack" target="_blank" rel="noopener noreferrer" class="absolute bottom-4 left-4 right-4 bg-brandDark text-brandBg py-3 text-center text-xs uppercase tracking-widest font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 subtle-edge">
+                        Add to Cart via WhatsApp
+                    </a>
+                </div>
+                <a href="product_details_page_nbs_boutique.html" class="block transition-colors duration-300 group-hover:text-brandAccent">
+                    <h4 class="font-serif text-lg font-medium mb-1">Kids' Adventure Backpack</h4>
+                </a>
+                <p class="text-brandMuted text-sm font-semibold tracking-wide">8,500 DZD</p>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="group reveal-on-scroll" style="transition-delay: 300ms;">
+                <div class="bg-brandCardBg aspect-[4/5] mb-4 relative overflow-hidden">
+                    <a href="product_details_page_nbs_boutique.html" class="block w-full h-full">
+                        <img src="product-shell.jpg" 
+                             alt="Classic Hard Shell" 
+                             class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/600x750/EAE5D9/1A1A1A?text=Classic+Hard+Shell'">
+                    </a>
+                    <a href="https://wa.me/0561040099?text=Hello%20NBS%20Boutique,%20I%20would%20like%20to%20order%20Classic%20Hard%20Shell" target="_blank" rel="noopener noreferrer" class="absolute bottom-4 left-4 right-4 bg-brandDark text-brandBg py-3 text-center text-xs uppercase tracking-widest font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 subtle-edge">
+                        Add to Cart via WhatsApp
+                    </a>
+                </div>
+                <a href="product_details_page_nbs_boutique.html" class="block transition-colors duration-300 group-hover:text-brandAccent">
+                    <h4 class="font-serif text-lg font-medium mb-1">Classic Hard Shell</h4>
+                </a>
+                <p class="text-brandMuted text-sm font-semibold tracking-wide">29,000 DZD</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Story (Local Trust) -->
+    <section id="story" class="py-24 px-6 md:px-12 bg-stone-100 border-t border-brandDark/10">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <!-- Left Text Content -->
+            <div class="reveal-on-scroll">
+                <span class="text-xs uppercase tracking-[0.3em] text-brandAccent font-semibold block mb-4">Our Heritage</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-normal leading-tight mb-6">
+                    Born in Oran, <span class="text-brandAccent italic">Curated for the World</span>.
+                </h2>
+                <p class="text-brandMuted text-base font-light leading-relaxed mb-8">
+                    Established in the heart of Oran at Rue Khemisti, NBS Boutique was founded with a singular vision: to bring uncompromised quality, international design standards, and functional sophistication to Algerian travelers and fashion enthusiasts. From robust luggage engineered for global journeys to refined everyday accessories, every piece tells a story of elegance.
+                </p>
+
+                <!-- Trust Badges -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-brandDark/10">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 bg-brandDark text-brandBg flex items-center justify-center shrink-0 subtle-edge">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.25v11.25m-4.5-11.25V12m0 0h4.5m-4.5 0H9m-6 0h3"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h5 class="font-serif font-medium text-base mb-1">Fast Local Delivery</h5>
+                            <p class="text-brandMuted text-xs font-light">Rapid shipping across Oran and all major Algerian wilayas.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 bg-brandDark text-brandBg flex items-center justify-center shrink-0 subtle-edge">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.75A.75.75 0 013 4.5h3.75m0 0v.75A.75.75 0 016 6h-.75m0 0v-.75A.75.75 0 016 4.5h3.75"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h5 class="font-serif font-medium text-base mb-1">Cash on Delivery</h5>
+                            <p class="text-brandMuted text-xs font-light">Inspect your items upon arrival with secure local payment options.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Image -->
+            <div class="reveal-on-scroll relative aspect-[4/3] lg:aspect-[4/5] bg-stone-200">
+                <img src="hero.png" 
+                     alt="NBS Boutique heritage image in Oran" 
+                     class="w-full h-full object-cover object-center"
+                     onerror="this.src='https://placehold.co/800x1000/1A1A1A/F9F8F6?text=NBS+Boutique+Oran'">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-brandDark text-brandBg py-20 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            <!-- Col 1: Brand & Tagline -->
+            <div>
+                <a href="#" class="font-serif text-2xl tracking-[0.25em] uppercase font-semibold block mb-4">
+                    NBS Boutique
+                </a>
+                <p class="text-stone-400 text-sm font-light leading-relaxed mb-6">
+                    Elevating travel and everyday style with curated hard-shell luggage, luxury handbags, and kids' collections in Oran.
+                </p>
+                <div class="text-stone-300 text-xs tracking-widest uppercase font-medium">
+                    &copy; 2026 NBS Boutique. All rights reserved.
+                </div>
+            </div>
+
+            <!-- Col 2: Quick Links -->
+            <div>
+                <h5 class="font-serif text-lg font-medium mb-6 tracking-wide text-stone-200">Quick Links</h5>
+                <ul class="space-y-3 text-sm text-stone-400 font-light">
+                    <li><a href="#shop" class="hover:text-white transition-colors">Shop All Products</a></li>
+                    <li><a href="#collections" class="hover:text-white transition-colors">Curated Collections</a></li>
+                    <li><a href="#story" class="hover:text-white transition-colors">Our Story & Values</a></li>
+                    <li><a href="https://wa.me/0561040099" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Customer Support (WhatsApp)</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Contact Info -->
+            <div>
+                <h5 class="font-serif text-lg font-medium mb-6 tracking-wide text-stone-200">Flagship Store</h5>
+                <ul class="space-y-3 text-sm text-stone-400 font-light">
+                    <li>Oran Centre Ville</li>
+                    <li>Rue Khemisti, La Bastille</li>
+                    <li>Oran, Algeria</li>
+                    <li class="pt-2 font-medium text-stone-200">Phone / WhatsApp: 0561 04 00 99</li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Socials & Newsletter -->
+            <div>
+                <h5 class="font-serif text-lg font-medium mb-6 tracking-wide text-stone-200">Connect</h5>
+                <p class="text-stone-400 text-sm font-light mb-4">Follow our daily drops and styling inspiration.</p>
+                <div class="flex space-x-4">
+                    <!-- Instagram SVG -->
+                    <a href="#" class="w-10 h-10 border border-stone-700 flex items-center justify-center text-stone-300 hover:border-white hover:text-white transition-all subtle-edge" title="Instagram">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <!-- TikTok SVG -->
+                    <a href="#" class="w-10 h-10 border border-stone-700 flex items-center justify-center text-stone-300 hover:border-white hover:text-white transition-all subtle-edge" title="TikTok">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                            <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto pt-8 border-t border-stone-800 text-center text-xs text-stone-500 font-light">
+            Designed for NBS Boutique Oran. Premium Bag Retail & Luggage Curators.
+        </div>
+    </footer>
+
+    <!-- Vanilla JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Sticky Header Scroll Background Transition
+            const header = document.getElementById('site-header');
+            const scrollThreshold = 40;
+
+            function checkScroll() {
+                if (window.scrollY > scrollThreshold) {
+                    header.classList.add('bg-[#F9F8F6]/95', 'backdrop-blur-md', 'shadow-sm', 'py-4');
+                    header.classList.remove('bg-transparent', 'py-5');
+                } else {
+                    header.classList.remove('bg-[#F9F8F6]/95', 'backdrop-blur-md', 'shadow-sm', 'py-4');
+                    header.classList.add('bg-transparent', 'py-5');
+                }
+            }
+
+            window.addEventListener('scroll', checkScroll);
+            checkScroll();
+
+            // 2. Mobile Menu Toggle
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            const bar1 = document.getElementById('bar1');
+            const bar2 = document.getElementById('bar2');
+            const bar3 = document.getElementById('bar3');
+            let isMenuOpen = false;
+
+            function toggleMenu() {
+                isMenuOpen = !isMenuOpen;
+                if (isMenuOpen) {
+                    mobileMenu.classList.remove('translate-x-full');
+                    document.body.style.overflow = 'hidden';
+                    bar1.classList.add('rotate-45', 'translate-y-2');
+                    bar2.classList.add('opacity-0');
+                    bar3.classList.add('-rotate-45', '-translate-y-2');
+                } else {
+                    mobileMenu.classList.add('translate-x-full');
+                    document.body.style.overflow = '';
+                    bar1.classList.remove('rotate-45', 'translate-y-2');
+                    bar2.classList.remove('opacity-0');
+                    bar3.classList.remove('-rotate-45', '-translate-y-2');
+                }
+            }
+
+            menuToggle.addEventListener('click', toggleMenu);
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (isMenuOpen) toggleMenu();
+                });
+            });
+
+            // 3. Intersection Observer for Fade-In-Up Animations on Scroll
+            const revealElements = document.querySelectorAll('.reveal-on-scroll');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -50px 0px',
+                threshold: 0.1
+            };
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            revealElements.forEach(el => {
+                revealObserver.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
